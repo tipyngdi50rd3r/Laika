@@ -24,12 +24,24 @@ class ViewController: UIViewController {
 
     @IBAction func convertDogYearsButton(sender: UIButton) {
         
-        let ageHumanYearString = ageInHumanYears.text
-        var ageHumanYearInt = (ageHumanYearString.toInt())!
-        var conversionConstant = 7
+        let stringFromTextField = ageInHumanYears.text
+
+        let optionalDoubleFromTextField = Double((stringFromTextField as NSString).doubleValue)
+        var realDogYears:Double
+        if optionalDoubleFromTextField > 2
+        {
+            realDogYears = (10.5 * 2) + (optionalDoubleFromTextField - 2) * 4
+        }
+        else
+        {
+            realDogYears = optionalDoubleFromTextField * 10.5
+        }
+        
         ageInDogYearsLabel.hidden = false
-        ageInDogYearsLabel.text = "\(ageHumanYearInt * conversionConstant)" + " dog years"
+
+        ageInDogYearsLabel.text = "\(realDogYears)" + " Real Human Years"
         ageInHumanYears.resignFirstResponder()
+        
         
     }
 
