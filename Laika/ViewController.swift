@@ -27,9 +27,8 @@ class ViewController: UIViewController {
         let ageHumanYearString = ageInHumanYears.text
         var ageHumanYearInt = (ageHumanYearString.toInt())!
         var conversionConstant = 7
-        ageHumanYearInt *= conversionConstant
         ageInDogYearsLabel.hidden = false
-        ageInDogYearsLabel.text = "\(ageHumanYearInt)" + " dog years"
+        ageInDogYearsLabel.text = "\(ageHumanYearInt * conversionConstant)" + " dog years"
         ageInHumanYears.resignFirstResponder()
         
     }
